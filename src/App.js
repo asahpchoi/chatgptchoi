@@ -1,5 +1,5 @@
 import "./styles.css";
-import axios from "axios";
+
 import { useState, useEffect } from "react";
 
 import * as React from "react";
@@ -12,6 +12,7 @@ import { Chats } from "./comps/Chat.jsx";
 import { CommandList } from "./comps/CommandList.jsx";
 import { getActAs } from "./comps/DataList.jsx";
 import { Toolbar } from "./comps/Toolbar.jsx";
+import { askGPT } from "./comps/ChatGPT.jsx";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -23,45 +24,19 @@ export default function App() {
 
   if (!userid) setUserid(Math.random());
 
-  const addMessage = (message) => {
+  const addMessage = async (message) => {
     messages.push({
       id: 1,
       message,
     });
     setIsLoading(true);
+    const answer = await askGPT(message, userid);
 
-    var data = JSON.stringify({
-      question: message,
-      userid: userid,
+    messages.push({
+      id: 0,
+      message: answer,
     });
-
-    var config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "https://wiry-encouraging-hoodie.glitch.me/chat",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        const answer = response.data.content;
-        messages.push({
-          id: 0,
-          message: answer,
-        });
-        setLastMessage(answer.trim());
-        setIsLoading(false);
-        const nestedElement = document.getElementById("card");
-        nestedElement.scrollTo(0, nestedElement.scrollHeight);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    //    document.getElementById("card").scrollIntoView(false);
-    //.scrollIntoView({ behavior: "smooth", block: "end" });
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -102,6 +77,7 @@ export default function App() {
             Act as
           </Button>
         </ButtonGroup>
+
         <Card>
           <CardContent id="card">
             <Chats messages={messages} isLoading={isLoading} />
