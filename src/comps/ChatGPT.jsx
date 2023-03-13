@@ -6,8 +6,6 @@ export async function askGPT(message, userid) {
     userid: userid,
   });
 
-  console.log(data);
-
   var config = {
     method: "post",
     maxBodyLength: Infinity,
@@ -18,6 +16,6 @@ export async function askGPT(message, userid) {
     data: data,
   };
   const answer = (await axios(config)).data.content.trim();
-  console.log({ answer });
+
   return answer;
 }
