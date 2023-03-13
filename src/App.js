@@ -19,7 +19,6 @@ export default function App() {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userid, setUserid] = useState();
-  const [lastMessage, setLastMessage] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   if (!userid) setUserid(Math.random());
