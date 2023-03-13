@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
 import "animate.css";
-
+import CircularProgress from "@mui/material/CircularProgress";
 export function Chats({ messages, isLoading }) {
   return (
     <>
@@ -24,7 +23,8 @@ export function Chats({ messages, isLoading }) {
           </pre>
         </div>
       ))}
-      {isLoading ? "......" : ""}
+
+      {isLoading ? <CircularProgress /> : ""}
     </>
   );
 }

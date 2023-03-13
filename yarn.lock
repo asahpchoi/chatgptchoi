@@ -2381,6 +2381,11 @@
     "@typescript-eslint/types" "5.54.1"
     "eslint-visitor-keys" "^3.3.0"
 
+"@web-companions/gfc@^1.0.2":
+  "integrity" "sha512-cn8x3WUF0WkxptMSVujoOUNjfO8iknvbnhKhsvutY9NnRD+m+tFDD9QX/9Vt9mPCGvcyNrAENkNngAX+2Y42kQ=="
+  "resolved" "https://registry.npmjs.org/@web-companions/gfc/-/gfc-1.2.0.tgz"
+  "version" "1.2.0"
+
 "@webassemblyjs/ast@1.11.1":
   "integrity" "sha512-ukBh14qFLjxTQNTXocdyksN5QdM28S1CxHt2rdskFyL+xFV7VremuBLVbmCePj+URalXBENx/9Lm7lnhihtCSw=="
   "resolved" "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.1.tgz"
@@ -3211,7 +3216,7 @@
   "resolved" "https://registry.npmjs.org/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz"
   "version" "2.4.0"
 
-"chalk@^2.0.0", "chalk@^2.4.1":
+"chalk@^2.0.0", "chalk@^2.4.1", "chalk@^2.4.2":
   "integrity" "sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ=="
   "resolved" "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
   "version" "2.4.2"
@@ -4917,6 +4922,11 @@
   "resolved" "https://registry.npmjs.org/get-package-type/-/get-package-type-0.1.0.tgz"
   "version" "0.1.0"
 
+"get-stdin@^4.0.1":
+  "integrity" "sha512-F5aQMywwJ2n85s4hJPTT9RPxGmubonuB10MNYo17/xph174n2MIR33HRguhzVag10O/npM7SPk73LMZNP+FaWw=="
+  "resolved" "https://registry.npmjs.org/get-stdin/-/get-stdin-4.0.1.tgz"
+  "version" "4.0.1"
+
 "get-stream@^6.0.0":
   "integrity" "sha512-ts6Wi+2j3jQjqi70w5AlN8DFnkSwC+MqmxEzdEALB2qXZYV3X/b1CTfgPLGJNMeAWxdPfU8FO1ms3NUfaHCPYg=="
   "resolved" "https://registry.npmjs.org/get-stream/-/get-stream-6.0.1.tgz"
@@ -6384,6 +6394,21 @@
   "resolved" "https://registry.npmjs.org/loader-utils/-/loader-utils-3.2.1.tgz"
   "version" "3.2.1"
 
+"loading-progress-bar@^2.0.4":
+  "integrity" "sha512-C2imOfUTJRwqbsLQKW8lXeWqIcd1eB134weGQjQFtUzslICtSDYkau2zKqDuHnQ8ev0le7SI07AYqdeoOh0/7g=="
+  "resolved" "https://registry.npmjs.org/loading-progress-bar/-/loading-progress-bar-2.0.4.tgz"
+  "version" "2.0.4"
+  dependencies:
+    "@web-companions/gfc" "^1.0.2"
+
+"loadingbar@^1.1.0":
+  "integrity" "sha512-weVCWiYrYtHbJUnshm2kzwq9oMKW8Ir8zebRpFVX8ZnsrWET8Cnm4rUbR/ebUGPFn2fs5LyHRe+5cGql028UQQ=="
+  "resolved" "https://registry.npmjs.org/loadingbar/-/loadingbar-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "chalk" "^2.4.2"
+    "taketalk" "^1.0.0"
+
 "locate-path@^3.0.0":
   "integrity" "sha512-7AO748wWnIhNqAuaty2ZWHkQHRSNfPVIsPIfwEOWO22AmaoVrWavlOcMR5nzTLNYvp36X220/maaRsrec1G65A=="
   "resolved" "https://registry.npmjs.org/locate-path/-/locate-path-3.0.0.tgz"
@@ -6583,7 +6608,7 @@
   dependencies:
     "brace-expansion" "^2.0.1"
 
-"minimist@^1.2.0", "minimist@^1.2.6":
+"minimist@^1.1.0", "minimist@^1.2.0", "minimist@^1.2.6":
   "integrity" "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.8.tgz"
   "version" "1.2.8"
@@ -8792,6 +8817,14 @@
     "postcss-value-parser" "^4.2.0"
     "quick-lru" "^5.1.1"
     "resolve" "^1.22.1"
+
+"taketalk@^1.0.0":
+  "integrity" "sha512-kS7E53It6HA8S1FVFBWP7HDwgTiJtkmYk7TsowGlizzVrivR1Mf9mgjXHY1k7rOfozRVMZSfwjB3bevO4QEqpg=="
+  "resolved" "https://registry.npmjs.org/taketalk/-/taketalk-1.0.0.tgz"
+  "version" "1.0.0"
+  dependencies:
+    "get-stdin" "^4.0.1"
+    "minimist" "^1.1.0"
 
 "tapable@^1.0.0":
   "integrity" "sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA=="

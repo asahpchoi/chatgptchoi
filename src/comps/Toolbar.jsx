@@ -1,23 +1,28 @@
 import { useState } from "react";
 import TextField from "@mui/material/TextField";
-import SendIcon from "@mui/icons-material/Send";
+import MicIcon from "@mui/icons-material/Mic";
 import { Button } from "@mui/material";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
+import MicOffIcon from "@mui/icons-material/MicOff";
+import "animate.css";
 
 export function Toolbar({ addMessage }) {
+  const [isListening, setIsListening] = useState(false);
   const {
     transcript,
     listening,
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
-  const startListening = () =>
+  const startListening = () => {
+    setIsListening(true);
     SpeechRecognition.startListening({ continuous: true });
+  };
   const stopListening = () => {
-    document.getElementById("message").value = transcript;
-
+    setIsListening(false);
+    addMessage(transcript);
     resetTranscript();
     SpeechRecognition.stopListening({});
   };
@@ -37,25 +42,17 @@ export function Toolbar({ addMessage }) {
           }}
           style={{ width: "70%" }}
         />
+
         <Button
           variant="contained"
-          endIcon={<SendIcon />}
-          onClick={() => {
-            const msg = document.getElementById("message").value;
-            document.getElementById("message").value = "";
-            addMessage(msg);
-          }}
+          onClick={isListening ? stopListening : startListening}
+          className={
+            isListening
+              ? "animate__animated animate__fadeIn animate__slow animate__infinite"
+              : ""
+          }
         >
-          Send
-        </Button>
-        <Button
-          variant="contained"
-          onTouchStart={startListening}
-          onMouseDown={startListening}
-          onTouchEnd={stopListening}
-          onMouseUp={stopListening}
-        >
-          Hold to talk
+          {!isListening ? <MicIcon /> : <MicOffIcon />}
         </Button>
       </div>
     </>
