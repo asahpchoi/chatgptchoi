@@ -16,9 +16,10 @@ export function Toolbar({ addMessage }) {
     resetTranscript,
     browserSupportsSpeechRecognition,
   } = useSpeechRecognition();
+
   const startListening = () => {
     setIsListening(true);
-    SpeechRecognition.startListening({ continuous: true });
+    SpeechRecognition.startListening();
   };
   const stopListening = () => {
     setIsListening(false);
