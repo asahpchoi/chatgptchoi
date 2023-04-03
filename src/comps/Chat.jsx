@@ -8,8 +8,8 @@ export function Chats({ messages, isLoading }) {
           <pre
             className={
               key % 2 === 0
-                ? "second-color animate__animated  animate__backInLeft"
-                : "first-color animate__animated  animate__backInRight"
+                ? " animate__animated  animate__backInLeft"
+                : " animate__animated  animate__backInRight"
             }
             onClick={() => {
               navigator.share({

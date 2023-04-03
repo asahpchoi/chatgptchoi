@@ -6,13 +6,11 @@ import * as React from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
-import ButtonGroup from "@mui/material/ButtonGroup";
 import { Chats } from "./comps/Chat.jsx";
-import { CommandList } from "./comps/CommandList.jsx";
 import { getActAs } from "./comps/DataList.jsx";
 import { Toolbar } from "./comps/Toolbar.jsx";
 import { askGPT } from "./comps/ChatGPT.jsx";
+import { CommandList } from "./comps/CommandList";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -25,6 +23,8 @@ export default function App() {
   if (!userid) setUserid(Math.random());
 
   const addMessage = async (message) => {
+    if (message.trim() == "") return;
+
     messages.push({
       id: 1,
       message,
@@ -55,11 +55,7 @@ export default function App() {
         setIsOpen={setIsOpen}
       />
       <div className="main">
-        <ButtonGroup
-          variant="contained"
-          aria-label="outlined primary button group"
-          className="topbar"
-        >
+        <div className="topbar">
           <Button
             onClick={() => {
               setItems([]);
@@ -76,8 +72,7 @@ export default function App() {
           >
             Act as
           </Button>
-        </ButtonGroup>
-
+        </div>
         <Card>
           <CardContent id="card">
             <Chats messages={messages} isLoading={isLoading} />
