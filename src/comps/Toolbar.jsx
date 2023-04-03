@@ -15,6 +15,7 @@ export function Toolbar({ addMessage }) {
       <div className="toolbar">
         <TextField
           id="message"
+          style={{ width: "100%" }}
           onKeyPress={(event) => {
             if (event.key === "Enter") {
               const msg = document.getElementById("message").value;
@@ -22,7 +23,6 @@ export function Toolbar({ addMessage }) {
               addMessage(msg);
             }
           }}
-          style={{ width: "70%" }}
         />
       </div>
     </>

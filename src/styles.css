@@ -17,14 +17,22 @@ pre {
   margin: 0em;
   padding: 0.5em;
   white-space: pre-wrap;
-  font-family: "Roboto";
+  font-family: "Consolas";
   border-radius: 1em;
-  border-color: black;
+  border-style: solid;
+
+  margin-top: 1em;
+}
+
+.usermsg {
+  border-color: #88ff88;
+}
+
+.botmsg {
+  border-color: #ff8888;
 }
 
 .msgbox {
-  border-radius: 5px;
-  border-color: black;
 }
 .toolbar {
   display: flex;
@@ -55,6 +63,6 @@ pre {
 }
 
 #card {
-  height: 60vh;
+  height: 80vh;
   overflow-y: scroll;
 }
