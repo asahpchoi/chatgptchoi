@@ -80,7 +80,6 @@ export default function App() {
           </CardContent>
         </Card>
         <div className="toolbar">
-          <VoiceCommand addMessage={addMessage}> </VoiceCommand>
           <Toolbar addMessage={addMessage} />
         </div>
       </div>
