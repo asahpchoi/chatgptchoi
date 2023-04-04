@@ -1,16 +1,17 @@
 import "./styles.css";
-
+import * as React from "react";
 import { useState, useEffect } from "react";
 
-import * as React from "react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+
 import { Chats } from "./comps/Chat.jsx";
 import { getActAs } from "./comps/DataList.jsx";
 import { Toolbar } from "./comps/Toolbar.jsx";
 import { askGPT } from "./comps/ChatGPT.jsx";
 import { CommandList } from "./comps/CommandList";
+import { VoiceCommand } from "./comps/VoiceComamnd.js";
 
 export default function App() {
   const [messages, setMessages] = useState([]);
@@ -78,7 +79,10 @@ export default function App() {
             <Chats messages={messages} isLoading={isLoading} />
           </CardContent>
         </Card>
-        <Toolbar addMessage={addMessage} />
+        <div className="toolbar">
+          <VoiceCommand addMessage={addMessage}> </VoiceCommand>
+          <Toolbar addMessage={addMessage} />
+        </div>
       </div>
     </>
   );

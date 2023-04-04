@@ -28,6 +28,11 @@ pre {
   margin-right: 2em;
 }
 
+.toolbar {
+  display: flex;
+  padding: 0.5em;
+}
+
 .botmsg {
   border-color: #ff8888;
   margin-left: 2em;
