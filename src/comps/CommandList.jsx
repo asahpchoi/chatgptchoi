@@ -6,8 +6,15 @@ import Divider from "@mui/material/Divider";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
+import EditableText from "./EditableText";
 
-export function CommandList({ arr, addm, isOpen, setIsOpen }) {
+export function CommandList({ arr, addm, isOpen, setIsOpen, type }) {
+  const [context, setContext] = useState(null);
+  // console.log(arr);
+  const addMessageClose = (content) => {
+    addm(content);
+    setIsOpen(false);
+  };
   return (
     <Drawer
       anchor="right"
@@ -24,23 +31,49 @@ export function CommandList({ arr, addm, isOpen, setIsOpen }) {
           close
         </Button>
       </div>
-      <MenuList dense>
-        {arr.map((r) => (
-          <MenuItem key={r.act}>
-            <ListItemText
-              onClick={() => {
-                setIsOpen(false);
+      {type === "roles" && (
+        <MenuList dense>
+          {arr.map((r) => (
+            <MenuItem key={r.act}>
+              <ListItemText
+                onClick={() => {
+                  setIsOpen(false);
+                  addm(r.prompt);
+                }}
+                inset
+              >
+                {r.act}
+              </ListItemText>
+              <Divider />
+            </MenuItem>
+          ))}
+        </MenuList>
+      )}
 
-                addm(r.prompt);
-              }}
-              inset
-            >
-              {r.act}
-            </ListItemText>
-            <Divider />
-          </MenuItem>
-        ))}
-      </MenuList>
+      {type === "tasks" && (
+        <>
+          <MenuList dense>
+            {arr.map((r) => (
+              <MenuItem key={r.act}>
+                <ListItemText
+                  onClick={() => {
+                    //setIsOpen(false);
+                    //addm(r.prompt);
+                    setContext(r);
+                  }}
+                  inset
+                >
+                  {r}
+                </ListItemText>
+                <Divider />
+              </MenuItem>
+            ))}
+          </MenuList>
+          {context && (
+            <EditableText context={context} onComplete={addMessageClose} />
+          )}
+        </>
+      )}
     </Drawer>
   );
 }

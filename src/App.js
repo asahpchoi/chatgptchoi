@@ -7,7 +7,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 
 import { Chats } from "./comps/Chat.jsx";
-import { getActAs } from "./comps/DataList.jsx";
+import { getActAs, getTasks } from "./comps/DataList.jsx";
 import { Toolbar } from "./comps/Toolbar.jsx";
 import { askGPT } from "./comps/ChatGPT.jsx";
 import { CommandList } from "./comps/CommandList";
@@ -16,10 +16,12 @@ import { VoiceCommand } from "./comps/VoiceComamnd.js";
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [roles, setRoles] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [userid, setUserid] = useState();
   const [isOpen, setIsOpen] = useState(false);
+  const [type, setType] = useState("");
 
   if (!userid) setUserid(Math.random());
 
@@ -43,6 +45,7 @@ export default function App() {
   useEffect(() => {
     async function getData() {
       setRoles(await getActAs());
+      setTasks(await getTasks());
     }
     getData();
   }, []);
@@ -54,13 +57,15 @@ export default function App() {
         addm={addMessage}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
+        type={type}
       />
       <div className="main">
         <div className="topbar">
           <Button
             onClick={() => {
-              setItems([]);
+              setItems(tasks);
               setIsOpen(true);
+              setType("tasks");
             }}
           >
             Task
@@ -69,6 +74,7 @@ export default function App() {
             onClick={() => {
               setItems(roles);
               setIsOpen(true);
+              setType("roles");
             }}
           >
             Act as
