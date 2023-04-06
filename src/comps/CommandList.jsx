@@ -13,6 +13,7 @@ export function CommandList({ arr, addm, isOpen, setIsOpen, type }) {
   // console.log(arr);
   const addMessageClose = (content) => {
     addm(content);
+    setContext(null);
     setIsOpen(false);
   };
   return (
@@ -63,14 +64,25 @@ export function CommandList({ arr, addm, isOpen, setIsOpen, type }) {
                   }}
                   inset
                 >
-                  {r}
+                  <div
+                    style={{
+                      "overflow-wrap": "break-word",
+                      color: "blue",
+                      width: "80vw",
+                    }}
+                  >
+                    {r}
+                  </div>
                 </ListItemText>
                 <Divider />
               </MenuItem>
             ))}
           </MenuList>
           {context && (
-            <EditableText context={context} onComplete={addMessageClose} />
+            <>
+              <Divider />
+              <EditableText context={context} onComplete={addMessageClose} />
+            </>
           )}
         </>
       )}

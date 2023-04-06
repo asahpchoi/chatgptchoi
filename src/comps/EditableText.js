@@ -1,4 +1,9 @@
 import { useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardActions from "@mui/material/CardActions";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 
 const tokenize = (context) => {
   let results = [];
@@ -27,7 +32,15 @@ export default function EditableText({ context, onComplete }) {
     };
 
     return (
-      <textarea type="text" id={id} onChange={updateValue} placeholder={id} />
+      <>
+        <TextField
+          id={id}
+          label={id}
+          onChange={updateValue}
+          multiline
+          maxRows={4}
+        />
+      </>
     );
   };
 
@@ -41,11 +54,15 @@ export default function EditableText({ context, onComplete }) {
   };
 
   return (
-    <div className="App">
-      {tokens.map((t, i) => (
-        <span key={i}>{t.startsWith("#") ? <b>{showInput(t)}</b> : t}</span>
-      ))}
-      <button onClick={replace}>Complete</button>
-    </div>
+    <Card className="App">
+      <CardContent>
+        {tokens.map((t, i) => (
+          <span key={i}>{t.startsWith("#") ? <b>{showInput(t)}</b> : t}</span>
+        ))}
+      </CardContent>
+      <CardActions>
+        <Button onClick={replace}>Ask</Button>
+      </CardActions>
+    </Card>
   );
 }
