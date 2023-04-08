@@ -54,10 +54,10 @@ export default function EditableText({ context, onComplete }) {
   };
 
   return (
-    <Card className="App">
-      <CardContent>
+    <Card>
+      <CardContent className="promptbox">
         {tokens.map((t, i) => (
-          <span key={i}>{t.startsWith("#") ? <b>{showInput(t)}</b> : t}</span>
+          <div key={i}>{t.startsWith("#") ? showInput(t) : t}</div>
         ))}
       </CardContent>
       <CardActions>

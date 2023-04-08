@@ -58,19 +58,11 @@ export function CommandList({ arr, addm, isOpen, setIsOpen, type }) {
               <MenuItem key={r.act}>
                 <ListItemText
                   onClick={() => {
-                    //setIsOpen(false);
-                    //addm(r.prompt);
                     setContext(r);
                   }}
                   inset
                 >
-                  <div
-                    style={{
-                      "overflow-wrap": "break-word",
-                      color: "blue",
-                      width: "80vw",
-                    }}
-                  >
+                  <div style={{ width: "80vw", "word-wrap": "break-word" }}>
                     {r}
                   </div>
                 </ListItemText>

@@ -32,6 +32,10 @@
     "yarn deploy": {
       "name": "yarn deploy",
       "command": "yarn deploy"
+    },
+    "git add .": {
+      "name": "git add .",
+      "command": "git add ."
     }
   }
 }
