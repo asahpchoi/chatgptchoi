@@ -51,7 +51,7 @@ export default function App() {
   }, []);
 
   return (
-    <>
+    <div>
       <CommandList
         arr={items}
         addm={addMessage}
@@ -62,6 +62,7 @@ export default function App() {
       <div className="main">
         <div className="topbar">
           <Button
+            variant="contained"
             onClick={() => {
               setItems(tasks);
               setIsOpen(true);
@@ -71,6 +72,7 @@ export default function App() {
             Task
           </Button>
           <Button
+            variant="contained"
             onClick={() => {
               setItems(roles);
               setIsOpen(true);
@@ -80,7 +82,7 @@ export default function App() {
             Act as
           </Button>
         </div>
-        <Card>
+        <Card className="content">
           <CardContent id="card">
             <Chats messages={messages} isLoading={isLoading} />
           </CardContent>
@@ -89,6 +91,6 @@ export default function App() {
           <Toolbar addMessage={addMessage} />
         </div>
       </div>
-    </>
+    </div>
   );
 }

@@ -35,10 +35,18 @@ pre {
   border-color: #88ff88;
   margin-right: 2em;
 }
-
+.topbar {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: #ffebbb;
+}
+.topbar Button {
+  margin: 1em;
+}
 .toolbar {
   display: flex;
   padding: 0.5em;
+  background-color: #e0ffcd;
 }
 
 .botmsg {
@@ -51,13 +59,6 @@ pre {
 .toolbar {
   display: flex;
   justify-content: space-between;
-}
-.topbar {
-  display: flex;
-  flex-direction: row-reverse;
-}
-.topbar Button {
-  margin: 1em;
 }
 
 .first-color {
@@ -79,6 +80,6 @@ pre {
 }
 
 #card {
-  height: 70vh;
+  height: 85vh;
   overflow-y: scroll;
 }

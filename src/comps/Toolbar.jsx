@@ -14,7 +14,10 @@ export function Toolbar({ addMessage }) {
     <>
       <TextField
         id="message"
-        style={{ width: "90%" }}
+        multiline
+        maxRows={4}
+        fullWidth
+        sx={{ m: 1 }}
         onKeyPress={(event) => {
           if (event.key === "Enter") {
             send();
@@ -22,6 +25,7 @@ export function Toolbar({ addMessage }) {
         }}
       />
       <Button
+        variant="contained"
         onClick={() => {
           send();
         }}
