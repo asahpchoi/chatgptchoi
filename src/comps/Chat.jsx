@@ -1,5 +1,7 @@
 import "animate.css";
 import CircularProgress from "@mui/material/CircularProgress";
+import Link from "@mui/material/Link";
+
 export function Chats({ messages, isLoading }) {
   return (
     <>
@@ -9,17 +11,30 @@ export function Chats({ messages, isLoading }) {
             className={
               key % 2 === 0
                 ? "animate__animated  animate__backInLeft usermsg"
-                : "animate__animated  animate__backInRight botmsg"
+                : "animate__animated  animate__backInRight"
             }
-            onClick={() => {
-              navigator.share({
-                title: "share",
-                text: m.message,
-                url: "https://73otgx.csb.app/",
-              });
-            }}
           >
             {m.message.trim()}
+            <div className="chattool">
+              <Link
+                onClick={() => {
+                  navigator.clipboard.writeText(m.message);
+                }}
+              >
+                Copy
+              </Link>
+              <Link
+                onClick={() => {
+                  navigator.share({
+                    title: "share",
+                    text: m.message,
+                    url: "https://73otgx.csb.app/",
+                  });
+                }}
+              >
+                Share
+              </Link>
+            </div>
           </pre>
         </div>
       ))}

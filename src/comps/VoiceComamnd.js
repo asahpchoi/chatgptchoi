@@ -14,12 +14,13 @@ export function VoiceCommand({ addMessage }) {
     formData.append("language", "en");
 
     console.log({
-      formData,
+      fileOfBlob,
     });
 
     const res = await fetch("https://api.openai.com/v1/audio/transcriptions", {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer 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`,
+        "Content-Type": "multipart/form-data",
       },
       method: "POST",
       body: formData,

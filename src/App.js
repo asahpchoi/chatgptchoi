@@ -13,6 +13,12 @@ import { askGPT } from "./comps/ChatGPT.jsx";
 import { CommandList } from "./comps/CommandList";
 import { VoiceCommand } from "./comps/VoiceComamnd.js";
 
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
+
 export default function App() {
   const [messages, setMessages] = useState([]);
   const [roles, setRoles] = useState([]);
@@ -51,15 +57,22 @@ export default function App() {
   }, []);
 
   return (
-    <div>
-      <CommandList
-        arr={items}
-        addm={addMessage}
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        type={type}
-      />
-      <div className="main">
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        minHeight: "100vh",
+      }}
+    >
+      <CssBaseline />
+      <Container component="main">
+        <CommandList
+          arr={items}
+          addm={addMessage}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          type={type}
+        />
         <div className="topbar">
           <Button
             variant="contained"
@@ -82,15 +95,25 @@ export default function App() {
             Act as
           </Button>
         </div>
-        <Card className="content">
-          <CardContent id="card">
-            <Chats messages={messages} isLoading={isLoading} />
-          </CardContent>
-        </Card>
-        <div className="toolbar">
+
+        <Chats messages={messages} isLoading={isLoading} />
+      </Container>
+      <Box
+        component="footer"
+        sx={{
+          py: 3,
+          px: 2,
+          mt: "auto",
+          backgroundColor: (theme) =>
+            theme.palette.mode === "light"
+              ? theme.palette.grey[200]
+              : theme.palette.grey[800],
+        }}
+      >
+        <Container maxWidth="l">
           <Toolbar addMessage={addMessage} />
-        </div>
-      </div>
-    </div>
+        </Container>
+      </Box>
+    </Box>
   );
 }

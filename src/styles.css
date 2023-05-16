@@ -22,23 +22,28 @@ body {
 }
 
 pre {
-  margin: 0em;
-  padding: 0.5em;
   white-space: pre-wrap;
   font-family: "Consolas";
-  border-radius: 0em;
-  border-style: solid;
-  margin-top: 1em;
+}
+
+.chattool {
+  text-align: end;
+}
+
+.chattool * {
+  padding: 0.5em;
 }
 
 .usermsg {
-  border-color: #88ff88;
-  margin-right: 2em;
+  border: 0px;
+  border-bottom: 1px;
+  border-style: solid;
+  margin-right: 1em;
+  color: grey;
 }
 .topbar {
   display: flex;
   flex-direction: row-reverse;
-  background-color: #ffebbb;
 }
 .topbar Button {
   margin: 1em;
