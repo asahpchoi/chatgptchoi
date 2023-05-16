@@ -1,20 +1,9 @@
 body {
   font-family: roboto;
-  margin: 0;
-  padding: 0;
-}
-.main {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  margin: 0;
 }
 
 .main > * {
   margin-top: 0em;
-}
-
-.promptbox {
-  margin: 1em;
 }
 
 .promptbox > span {
@@ -24,6 +13,7 @@ body {
 pre {
   white-space: pre-wrap;
   font-family: "Consolas";
+  padding: 0.5em;
 }
 
 .chattool {
@@ -34,24 +24,21 @@ pre {
   padding: 0.5em;
 }
 
-.usermsg {
-  border: 0px;
-  border-bottom: 1px;
+pre {
+  border: 1px;
   border-style: solid;
-  margin-right: 1em;
-  color: grey;
+  border-color: #ff8888;
+}
+
+.usermsg {
+  border-color: aqua;
 }
 .topbar {
   display: flex;
   flex-direction: row-reverse;
 }
 .topbar Button {
-  margin: 1em;
-}
-.toolbar {
-  display: flex;
-  padding: 0.5em;
-  background-color: #e0ffcd;
+  margin: 0.2em;
 }
 
 .botmsg {
@@ -61,30 +48,6 @@ pre {
 
 .msgbox {
 }
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-}
 
-.first-color {
-  background: #e0ffcd;
-  margin-left: 5em;
-}
-
-.second-color {
-  background: #fdffcd;
-  margin-right: 5em;
-}
-
-.third-color {
-  background: #ffebbb;
-}
-
-.fourth-color {
-  background: #ffcab0;
-}
-
-#card {
-  height: 85vh;
-  overflow-y: scroll;
+#main {
 }

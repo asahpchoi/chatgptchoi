@@ -65,7 +65,7 @@ export default function App() {
       }}
     >
       <CssBaseline />
-      <Container component="main">
+      <Container component="main" id="main">
         <CommandList
           arr={items}
           addm={addMessage}
